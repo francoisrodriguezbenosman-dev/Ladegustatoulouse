@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visites & Rencontres - Domaine de Lapistoule</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <script type="module" src="/src/scripts/main.ts"></script>
+</head>
+<body data-page="visites">
+
+    <!-- HEADER -->
+    <header id="main-header" class="main-header"></header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="assets/images/visites/visites-hero.png" alt="Vue panoramique vignoble Cahors" />
+                <div class="hero-overlay"></div>
+                <div class="hero-gradient"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title" data-reveal="fade-up">
+                    Visites & Rencontres
+                    <span class="hero-subtitle">Rencontrons-nous au cour des vignes de Luzech.</span>
+                </h1>
+                <p class="hero-text delay-300" data-reveal="fade-up">
+                    Poussez les portes du chai.
+                </p>
+            </div>
+            <div class="scroll-indicator">
+                <i data-lucide="arrow-down" width="32" height="32"></i>
+            </div>
+        </section>
+
+        <!-- L'EXPÉRIENCE (Side-by-side) -->
+        <section class="section section-bg-light experience-section">
+            <div class="container">
+                <div class="grid grid-2 items-center gap-xl">
+                    <div class="image-wrapper" data-reveal="fade-right">
+                        <img src="assets/images/visites/visites-degustation.png" alt="Dégustation au domaine" class="img-fluid rounded shadow-lg" />
+                    </div>
+                    <div class="text-wrapper delay-200" data-reveal="fade-left">
+                        <h2 class="section-title text-dark">Dégustation & Découverte</h2>
+                        <div class="separator-gold"></div>
+                        <p class="text-dark experience-text">
+                            Que vous soyez amateur ou connaisseur, nous prenons le temps de vous raconter notre terroir. 
+                            Nous vous accueillons toute l'année pour vous faire partager notre passion, dans la simplicité et la convivialité.
+                        </p>
+                        <p class="text-dark experience-text mt-md">
+                            Pour organiser votre venue ou une visite de groupe, contactez-nous directement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOUS TROUVER & CONTACTER -->
+        <section class="section section-bg-dark contact-block-section">
+            <div class="container text-center">
+                <div class="contact-card" data-reveal="fade-up">
+                    <h2 class="section-title text-gold mb-lg">Nous Contacter</h2>
+                    
+                    <div class="contact-info">
+                        <a href="tel:+33565201262" class="contact-link phone-link">
+                            <span class="icon">📞</span>
+                            05 65 20 12 62
+                        </a>
+                        
+                        <a href="mailto:contact@domainedelapistoule.com" class="contact-link email-link">
+                            contact@domainedelapistoule.com
+                        </a>
+
+                        <div class="address-block mt-md">
+                            <p class="address-text">Domaine de Lapistoule<br>Lieu-dit La Pistoule,<br>46140 Luzech, France</p>
+                            <a href="https://maps.google.com/?q=Lieu-dit+La+Pistoule+46140+Luzech+France" target="_blank" class="map-link">Voir l'itinéraire</a>
+                        </div>
+
+                        <p class="opening-hours mt-md">
+                            Ouvert tous les jours. Merci de nous contacter avant votre venue pour vous assurer le meilleur accueil.
+                        </p>
+                    </div>
+                    
+                    <div class="mobile-action mt-lg display-mobile-only">
+                        <a href="tel:+33565201262" class="btn btn-gold btn-large">Appeler le Domaine</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="main-footer"></footer>
+
+</body>
+</html>
+
+
+
+

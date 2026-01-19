@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Domaine de Lapistoule</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <script type="module" src="/src/scripts/main.ts"></script>
+</head>
+
+<body data-page="contact">
+
+    <!-- HEADER (Injected via global.ts) -->
+    <header id="main-header" class="main-header"></header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="assets/images/domaine/domaine_1.webp" alt="Vignes ancestrales du Domaine de Lapistoule, n'hésitez pas à nous contacter" />
+                <div class="hero-overlay"></div>
+                <div class="hero-gradient"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title" data-reveal="fade-up">Contactez-nous</h1>
+                <p class="hero-text delay-300" data-reveal="fade-up">
+                    Une question ? Une visite ? Nous sommes à votre écoute.
+                </p>
+            </div>
+            <div class="scroll-indicator">
+                <i data-lucide="arrow-down" width="32" height="32"></i>
+            </div>
+        </section>
+
+        <!-- CONTACT FORM -->
+        <section class="section section-bg-alt">
+            <div class="container max-w-3xl">
+                <div class="contact-form-card" data-reveal="fade-up">
+                    <form class="space-y-6">
+                        <div class="grid grid-2 gap-md">
+                            <div class="form-group">
+                                <label for="firstname" class="form-label">Prénom</label>
+                                <input type="text" id="firstname" class="form-input" placeholder="Votre prénom">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="form-label">Nom</label>
+                                <input type="text" id="lastname" class="form-input" placeholder="Votre nom">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="votre@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" rows="6" class="form-textarea"
+                                placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                        </div>
+
+                        <div class="text-center mt-md">
+                            <button type="submit" class="btn btn-primary btn-square">Envoyer le message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER CTA -->
+        <section class="section section-bg-light" style="border-top: 1px solid var(--color-stone-200);">
+            <div class="container text-center max-w-text">
+                <h2 class="value-title mb-md" style="font-size: 2.5rem;">Prêt à déguster nos cuvées ?
+                </h2>
+                <p class="text-light text-lg mb-lg">Passez nous voir au domaine à
+                    Luzech ou contactez-nous.</p>
+                <a href="contact.html" class="btn btn-outline-dark btn-square">Planifier votre visite / Nous
+                    contacter</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Injected via global.ts) -->
+
+    <footer id="footer" class="main-footer"></footer>
+
+
+
+</body>
+
+</html>
+

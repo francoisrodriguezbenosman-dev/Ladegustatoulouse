@@ -1,0 +1,194 @@
+/**
+ * Design Tokens - Responsive
+ * Système de variables CSS pour design cohérent et responsive
+ */
+
+:root {
+  /* ================================
+     BREAKPOINTS (référence - utilisés dans media queries)
+     ================================ */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ================================
+     SPACING SCALE (Mobile-first)
+     ================================ */
+  --space-xs: 0.25rem; /* 4px - Updated from base.css */
+  --space-sm: 0.5rem; /* 8px - Updated from base.css */
+  --space-md: 1rem; /* 16px - Updated from base.css */
+  --space-lg: 2rem; /* 32px - Updated from base.css */
+  --space-xl: 4rem; /* 64px - Updated from base.css */
+  --space-2xl: 6rem; /* 96px - Updated from base.css (was --space-xxl) */
+  --space-3xl: 8rem; /* 128px */
+  --space-4xl: 10rem;
+  --space-5xl: 12rem;
+
+  /* Spacing sémantique responsive (utilise clamp pour scaling fluide) */
+  --spacing-section: clamp(4rem, 8vw, 8rem); /* Adjusted for better mobile/desktop balance */
+  --spacing-gap: clamp(1rem, 3vw, 4rem);
+  --spacing-gap-responsive: clamp(2rem, 4vw, 4rem);
+  --container-padding: clamp(1rem, 2vw, 1.5rem);
+
+  /* ================================
+     TYPOGRAPHY SCALE (Fluid avec clamp)
+     ================================ */
+  /* Font sizes fluides - s'adaptent automatiquement au viewport */
+  --text-xs: clamp(0.75rem, 1.5vw, 0.875rem); /* 12-14px */
+  --text-sm: clamp(0.8125rem, 1.5vw, 0.875rem); /* 13-14px - Updated from base.css */
+  --text-base: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem); /* Updated from base.css */
+  --text-lg: clamp(1.125rem, 2vw, 1.375rem); /* Lead text */
+  --text-xl: clamp(1.25rem, 3vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 4vw, 2rem);
+  --text-3xl: clamp(2rem, 5vw, 3rem);
+  --text-4xl: clamp(2.5rem, 6vw, 4rem);
+  --text-5xl: clamp(3rem, 8vw, 5rem);
+
+  /* Fonts Families */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  /* Legacy Font Variables */
+  --font-serif: var(--font-heading);
+  --font-sans: var(--font-body);
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --leading-loose: 1.8;
+
+  /* Font weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* ================================
+     TOUCH TARGETS (Accessibilité)
+     ================================ */
+  --touch-target-min: 44px; /* WCAG AA minimum */
+  --touch-target-comfortable: 48px; /* WCAG AAA recommandé */
+  --button-min-height: 44px;
+
+  /* ================================
+     CONTAINER WIDTHS
+     ================================ */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  --container-max: 1536px;
+  --container-width: 1200px; /* Valeur par défaut actuelle */
+
+  /* ================================
+     COLORS
+     ================================ */
+  /* Main Colors from base.css */
+  --color-primary: #c6a664; /* Gold */
+  --color-primary-dark: #a68a50; /* Darker Gold (derived) */
+  --color-primary-light: #e0c888; /* Lighter Gold (derived) */
+
+  --color-secondary: #4a5d44; /* Green */
+  --color-secondary-dark: #3a4a35; /* Darker Green */
+  --color-secondary-light: #6b7d65; /* Lighter Green */
+
+  /* Neutrals */
+  --color-background: #faf9f6; /* Off-white */
+  --color-surface: #ffffff; /* Pure white */
+  --color-text: #2c2e35; /* Anthracite */
+  --color-muted: #e7e5e4; /* Stone 200 equivalent */
+
+  /* Functional Colors */
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-surface-veil: rgba(250, 249, 246, 0.95);
+
+  /* Legacy Color Mappings */
+  --color-stone-white: var(--color-background);
+  --color-stone-light: #f5f5f4;
+  --color-stone-200: var(--color-muted);
+  --color-anthracite: var(--color-text);
+  --color-vine-green: var(--color-secondary);
+  --color-matte-gold: var(--color-primary);
+  --color-white: var(--color-surface);
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-black-10: rgba(0, 0, 0, 0.1);
+
+  /* ================================
+     BORDER RADIUS
+     ================================ */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ================================
+     SHADOWS
+     ================================ */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.08); /* Updated from base.css */
+  --shadow-card: 0 10px 20px rgba(0, 0, 0, 0.1); /* Updated from base.css */
+
+  /* ================================
+     Z-INDEX SCALE
+     ================================ */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+
+  /* ================================
+     TRANSITIONS
+     ================================ */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  /* Easing functions */
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/* ================================
+   LEGACY SUPPORT (compatibilité)
+   ================================ */
+:root {
+  /* Anciennes variables - mapping vers nouvelles */
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-xl: var(--space-xl);
+  --spacing-xxl: var(--space-2xl);
+  --spacing-xxxl: var(--space-3xl);
+}
+
+/* ================================
+   ACCESSIBILITY
+   ================================ */
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0.01ms;
+    --transition-base: 0.01ms;
+    --transition-slow: 0.01ms;
+  }
+}

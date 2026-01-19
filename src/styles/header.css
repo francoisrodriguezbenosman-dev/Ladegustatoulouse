@@ -1,0 +1,372 @@
+/* =========================================
+   HEADER
+   ========================================= */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: var(--spacing-lg) 0;
+  transition: all 0.5s ease;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(0px);
+}
+
+.main-header.scrolled {
+  background-color: rgba(250, 249, 246, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Header Links Color Logic */
+.header-logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  text-shadow: none;
+  font-weight: 700;
+}
+
+/* CTA Button - Primary Action */
+.header-cta {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.header-cta:hover {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrolled State Colors */
+.main-header.scrolled .header-logo,
+.main-header.scrolled .nav-link,
+.main-header.scrolled .menu-icon {
+  color: var(--color-anthracite);
+  text-shadow: none;
+}
+
+.main-header.scrolled .nav-link.active {
+  color: var(--color-primary);
+}
+
+.main-header.scrolled .header-cta {
+  box-shadow: none;
+}
+
+/* Dark Header (for non-home pages) */
+.main-header.header-dark {
+  background-color: var(--color-anthracite);
+  padding: 1rem 0;
+}
+
+.main-header.header-dark .header-logo,
+.main-header.header-dark .nav-link {
+  color: var(--color-stone-white);
+  text-shadow: none;
+}
+
+.main-header.header-dark .nav-link.active {
+  color: var(--color-primary);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--color-white);
+  transition: color 0.3s ease;
+  z-index: 10001;
+  position: relative;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--color-primary);
+}
+
+.main-header.scrolled .mobile-menu-btn,
+.main-header.header-dark .mobile-menu-btn {
+  color: var(--color-anthracite);
+}
+
+.main-header.mobile-menu-open .mobile-menu-btn {
+  color: var(--color-white);
+}
+
+.menu-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh; /* Utilise dvh pour mobile */
+  background-color: rgba(28, 28, 30, 0.98); /* Fond sombre presque opaque */
+  backdrop-filter: blur(12px); /* Flou d'arrière-plan */
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Nav Links Animation */
+.mobile-nav-link {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--color-stone-white);
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+  transform: translateY(30px);
+  display: block;
+  text-align: center;
+}
+
+.mobile-menu-overlay.open .mobile-nav-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-overlay.open .mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu-overlay.open .mobile-nav-link:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu-overlay.open .mobile-nav-link:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu-overlay.open .mobile-nav-link:nth-child(4) { transition-delay: 0.25s; }
+.mobile-menu-overlay.open .mobile-nav-link:nth-child(5) { transition-delay: 0.3s; }
+
+.mobile-nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* CTA Button */
+.mobile-menu-cta {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: 2rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.open .mobile-menu-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.mobile-menu-cta:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+/* Mobile Menu Footer */
+.mobile-menu-footer {
+  margin-top: 3rem;
+  color: var(--color-stone-white);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu-overlay.open .mobile-menu-footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.mobile-menu-footer a {
+  color: var(--color-stone-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-footer a:hover {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   RESPONSIVE HEADER
+   ========================================= */
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+  .main-header {
+    padding: var(--space-sm) 0;
+  }
+
+  .main-header.scrolled {
+    padding: var(--space-xs) 0;
+  }
+
+  .header-logo {
+    align-items: flex-start;
+    font-size: 1.25rem;
+    max-width: 150px;
+    text-align: left;
+  }
+
+  .header-logo span {
+    display: block;
+  }
+
+  .nav-link {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    padding: var(--space-xs) var(--space-sm);
+    min-height: var(--touch-target-min);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .header-cta {
+    padding: var(--space-xs) var(--space-md);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    min-height: var(--touch-target-min);
+  }
+
+  .mobile-nav-link {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    padding: var(--space-md);
+    min-height: var(--touch-target-comfortable);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .mobile-menu-overlay {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .mobile-menu-close {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .mobile-menu-footer {
+    font-size: 0.875rem;
+  }
+}
+
+/* Très petits écrans (< 375px) */
+@media (max-width: 374px) {
+  .mobile-nav-link {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+  }
+
+  .mobile-menu-overlay {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .mobile-menu-close {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Tablet (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .main-header {
+    padding: var(--space-md) 0;
+  }
+
+  .main-header.scrolled {
+    padding: var(--space-sm) 0;
+  }
+
+  .header-logo {
+    font-size: 1.375rem;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .main-header {
+    padding: var(--space-lg) 0;
+  }
+
+  .main-header.scrolled {
+    padding: var(--space-md) 0;
+  }
+}
+
+/* Focus states for accessibility */
+.nav-link:focus-visible,
+.header-cta:focus-visible,
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

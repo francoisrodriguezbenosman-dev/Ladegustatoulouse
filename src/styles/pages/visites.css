@@ -1,0 +1,122 @@
+/* =========================================
+   PAGE: VISITES
+   ========================================= */
+
+/* --- Hero Adjustments --- */
+/* (Standard Hero styles are in layout.css/components.css) */
+
+/* --- Experience Section --- */
+.experience-section .image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px; /* Slight rounding */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.experience-section .separator-gold {
+  width: 4rem;
+  height: 2px;
+  background-color: var(--color-matte-gold);
+  margin: 1.5rem 0;
+}
+
+.experience-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* --- Contact Block Section --- */
+.contact-block-section {
+  padding: 6rem 0;
+}
+
+.contact-card {
+  background-color: transparent;
+  border: 1px solid var(--color-matte-gold);
+  padding: 3rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Option: Beige background variant if preferred, but "Encadré doré fin" was requested */
+/* 
+.contact-card.beige-bg {
+    background-color: #F5F5DC; 
+    border: none;
+}
+*/
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; /* Gros caractères requested */
+  color: var(--color-matte-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: white;
+}
+
+.phone-link {
+  font-size: 2rem; /* Even larger for phone */
+  font-weight: 600;
+}
+
+.address-block {
+  color: var(--color-light-gray);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  color: var(--color-matte-gold);
+}
+
+.opening-hours {
+  color: var(--color-light-gray);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+}
+
+/* --- Mobile Specific --- */
+.display-mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 2rem 1rem;
+    border: none; /* Simplify on mobile maybe? Or keep it. Let's keep it. */
+    border: 1px solid rgba(197, 160, 89, 0.5);
+  }
+
+  .phone-link {
+    font-size: 1.8rem;
+  }
+
+  .display-mobile-only {
+    display: block;
+  }
+
+  .btn-large {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

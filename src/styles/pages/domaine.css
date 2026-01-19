@@ -1,0 +1,379 @@
+/* =========================================
+   PAGE: DOMAINE
+   ========================================= */
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  margin-top: 0;
+  /* Reset standard main padding */
+  background-image: url('../../assets/images/domaine/domaine-0.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ensure hero text is readable with a dark overlay */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Linear gradient from bottom (darker) to top */
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.1) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 var(--container-padding);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+[data-page="domaine"] .hero-text {
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* --- History Section (Zig-Zag) --- */
+.section-history {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-stone-white);
+}
+
+.history-block {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  /* ~55% / 45% */
+  align-items: center;
+  margin-bottom: var(--spacing-xxl);
+  position: relative;
+  /* Needed for stacking context */
+}
+
+.history-content {
+  background-color: rgba(250, 249, 246, 0.95);
+  /* Increased opacity for better contrast */
+  padding: var(--spacing-xl);
+  margin-left: -4rem;
+  /* Overlap effect */
+  z-index: 2;
+  /* Bring content above image */
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  color: var(--color-anthracite);
+  /* FORCE dark text */
+}
+
+/* Force dark text on headings/paragraphs inside history-content to prevent inheritance issues */
+.history-content h2,
+.history-content h3,
+.history-content p {
+  color: var(--color-anthracite);
+}
+
+.history-content .styled-quote {
+  color: var(--color-anthracite);
+}
+
+/* Alternate order for even blocks */
+.history-block:nth-child(even) .history-image {
+  order: 2;
+}
+
+.history-block:nth-child(even) .history-content {
+  order: 1;
+  margin-left: 0;
+  margin-right: -4rem;
+  /* Overlap effect from right */
+}
+
+.history-image img {
+  width: 100%;
+  height: auto;
+  /* Add depth to images */
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 0.4s ease;
+}
+
+.history-image img:hover {
+  transform: scale(1.01);
+}
+
+/* Date styling - The "Eyebrow" becomes a Major Design Element */
+.history-date {
+  display: block;
+  font-family: var(--font-serif);
+  /* Serif for elegance */
+  font-weight: 700;
+  /* Bold */
+  font-size: 3rem;
+  /* Much larger */
+  line-height: 1;
+  color: var(--color-matte-gold);
+  text-transform: none;
+  /* Remove uppercase if it was set */
+  margin-bottom: var(--spacing-sm);
+}
+
+.history-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-anthracite);
+}
+
+/* --- Sustainable Section (Green) --- */
+.section-sustainable {
+  background-color: var(--color-vine-green);
+  color: var(--color-white);
+  padding: var(--spacing-xxl) 0;
+}
+
+.sustainable-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  position: relative;
+}
+
+.sustainable-content {
+  background-color: rgba(74, 93, 68, 0.95);
+  /* Green with slight opacity */
+  padding: var(--spacing-xl);
+  margin-left: -4rem;
+  z-index: 2;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  color: var(--color-white);
+  /* FORCE white text */
+}
+
+/* Force white text in sustainable section */
+.sustainable-content h2,
+.sustainable-content h3,
+.sustainable-content p,
+.sustainable-content .history-title {
+  color: var(--color-white);
+}
+
+.sustainable-content .history-date {
+  color: var(--color-matte-gold);
+  /* Keep gold accent even on dark bg */
+}
+
+.certification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  font-weight: 500;
+  color: var(--color-matte-gold);
+}
+
+/* --- Visit CTA Section (Floating Card) --- */
+.section-visit {
+  position: relative;
+  z-index: 10;
+  /* Above footer and previous section */
+  background-color: transparent;
+  /* Parent container is transparent */
+  padding: 0;
+  /* Remove default padding */
+  margin-top: -4rem;
+  /* Pull up to overlap previous section */
+  margin-bottom: -4rem;
+  /* Pull down to overlap footer */
+  pointer-events: none;
+  /* Let clicks pass through margins */
+}
+
+.visit-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #faf9f6;
+  /* Off-white card background */
+  padding: var(--spacing-xl);
+  /* Reduced from xxl to xl for better proportions */
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  /* Deep shadow for floating effect */
+  text-align: center;
+  pointer-events: auto;
+  /* Re-enable clicks on the card itself */
+}
+
+.visit-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.visit-text {
+  margin-bottom: var(--spacing-md);
+  color: #4b5563;
+}
+
+.visit-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .history-block,
+  .sustainable-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  /* Reset order for mobile so text comes after image or before? 
+       Usually image first is better visually, or text first for context.
+       Let's keep text first for history flow. */
+  .history-block:nth-child(even) .history-image {
+    order: unset;
+    /* Reset to default HTML order */
+  }
+
+  .history-block:nth-child(even) .history-content {
+    order: unset;
+  }
+
+  .section-history,
+  .section-sustainable,
+  .section-visit {
+    padding: var(--spacing-xl) 0;
+  }
+}
+
+/* --- Animations for Scroll Reveal --- */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Add delays for sequenced animations */
+.fade-in-up.delay-100 {
+  transition-delay: 0.1s;
+}
+
+.fade-in-up.delay-200 {
+  transition-delay: 0.2s;
+}
+
+.fade-in-up.delay-300 {
+  transition-delay: 0.3s;
+}
+
+.fade-in-up.delay-400 {
+  transition-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* --- Stylized Quote (Minimalist with Giant Quotes) --- */
+.styled-quote {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-anthracite);
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) 0;
+  /* No side padding, align with text */
+  border: none;
+  background: transparent;
+  /* Remove gray background */
+}
+
+.styled-quote::before {
+  content: '“';
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  font-size: 8rem;
+  font-family: var(--font-serif);
+  color: var(--color-matte-gold);
+  opacity: 0.2;
+  z-index: 0;
+  line-height: 1;
+}
+
+.styled-quote p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+/* --- Date Separator --- */
+.date-separator {
+  width: 50px;
+  /* Small horizontal line */
+  height: 2px;
+  background-color: var(--color-matte-gold);
+  margin-bottom: var(--spacing-sm);
+  /* Space below the line, above the date */
+}

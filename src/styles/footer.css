@@ -1,0 +1,107 @@
+/* =========================================
+   FOOTER
+   ========================================= */
+.main-footer {
+  background-color: var(--color-anthracite);
+  color: var(--color-stone-white);
+  padding-top: var(--spacing-xxxl); /* Increased to accommodate floating CTA card overlap */
+  padding-bottom: calc(var(--spacing-xl) - 1rem);
+  border-top: 1px solid var(--color-white-60);
+  font-family: var(--font-sans); /* Assure que tout le texte de base est en Montserrat */
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-logo-img {
+  height: 80px;
+  width: auto;
+  max-width: 100%;
+}
+
+.footer-heading {
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* Augmenté de 0.75rem à 0.875rem pour plus de présence */
+  font-weight: 700; /* Plus gras */
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+  margin-bottom: 1.75rem; /* Plus d'espace sous le titre */
+  margin-top: 0.5rem;
+}
+
+/* Nouveau style pour la liste de contact afin de garantir l'alignement icône/texte */
+.footer-links li.flex {
+  display: grid;
+  grid-template-columns: 24px 1fr; /* Icône fixe à 24px, texte prend le reste */
+  gap: 0.75rem;
+  align-items: start; /* Aligner en haut si le texte passe sur 2 lignes */
+  margin-bottom: 1rem;
+}
+
+.footer-links li.flex i {
+  transform: translateY(
+    3px
+  ); /* Petit ajustement optique pour centrer l'icône sur la 1ère ligne de texte */
+}
+
+.footer-links {
+  font-size: 1rem; /* Taille de base confortable */
+  line-height: 1.6;
+}
+
+.footer-links li {
+  margin-bottom: 0.875rem;
+}
+
+/* Harmonisation : on applique la même opacité au texte (span) qu'aux liens (a) */
+.footer-links a,
+.footer-links span {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  display: inline-block;
+  color: inherit; /* Assure que la couleur de base est identique */
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  margin-top: calc(var(--spacing-xxl) - 1rem);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-white-60);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem; /* Plus d'espace sur tablette */
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr; /* Première colonne plus large pour le logo */
+    gap: 2rem;
+  }
+}

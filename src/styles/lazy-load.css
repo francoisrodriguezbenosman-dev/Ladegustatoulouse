@@ -1,0 +1,53 @@
+/* =========================================
+   LAZY LOADING STYLES
+   ========================================= */
+
+/* Loading state - blur effect */
+img.lazy-loading {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+  background-color: var(--color-stone-light);
+}
+
+/* Loaded state - remove blur */
+img.lazy-loaded {
+  filter: blur(0);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Error state */
+img.lazy-error {
+  opacity: 0.5;
+  background-color: var(--color-stone-200);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Optional: Add skeleton loader for better UX */
+img[data-src] {
+  background: linear-gradient(
+    90deg,
+    var(--color-stone-100) 0%,
+    var(--color-stone-200) 50%,
+    var(--color-stone-100) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

@@ -1,0 +1,146 @@
+/* =========================================
+   ANIMATIONS & TRANSITIONS
+   ========================================= */
+
+/* Page Transitions */
+body {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 900;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: none;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-5px);
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lightbox.open .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -3rem;
+    right: -1rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================= */
+
+/* Base state: Hidden */
+[data-reveal] {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Default effect: Fade Up */
+[data-reveal="fade-up"] {
+    transform: translateY(30px);
+}
+
+/* Effect: Fade Left (Enter from Right) */
+[data-reveal="fade-left"] {
+    transform: translateX(30px);
+}
+
+/* Effect: Fade Right (Enter from Left) */
+[data-reveal="fade-right"] {
+    transform: translateX(-30px);
+}
+
+/* Effect: Fade In (Simple) */
+[data-reveal="fade-in"] {
+    transform: translateY(0);
+}
+
+/* Active state: Visible */
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translate(0, 0); /* Resets both X and Y */
+}
+
+/* Stagger delays (can be combined with data-reveal) */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+

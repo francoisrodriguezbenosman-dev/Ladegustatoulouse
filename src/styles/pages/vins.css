@@ -1,0 +1,365 @@
+/* =========================================
+   PAGE: VINS (Catalogue)
+   ========================================= */
+
+/* 1. HERO SPECIFIC
+   ----------------------------------------- */
+.hero-vins {
+  position: relative;
+  height: 70vh; /* Moins haut que l'accueil (100vh) */
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.hero-vins .hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-vins .hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 2. CATALOGUE SECTION
+   ----------------------------------------- */
+.catalogue-section {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--color-stone-white);
+  overflow: hidden; /* Pour éviter les débordements des animations */
+}
+
+/* 3. PRODUCT BLOCK (ZIG-ZAG)
+   ----------------------------------------- */
+.product-block {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxl);
+  margin-bottom: var(--spacing-xxl); /* Espace entre les vins */
+}
+
+/* Dernier bloc de la section sans marge basse */
+.product-block:last-child {
+  margin-bottom: 0;
+}
+
+.product-image,
+.product-content {
+  flex: 1; /* 50% width */
+}
+
+/* Layout Desktop */
+.product-block.row {
+  flex-direction: row;
+}
+
+.product-block.row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image Wrapper Styling */
+.product-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Fond subtil derrière la bouteille */
+.image-backdrop {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background-color: #f0ede9; /* Un beige un peu plus soutenu que le fond */
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+
+.bottle-img {
+  position: relative;
+  z-index: 1;
+  max-height: 550px;
+  width: auto;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15)); /* Ombre portée réaliste */
+  transition: transform 0.5s ease;
+}
+
+/* Hover Effect */
+.product-block:hover .bottle-img {
+  transform: scale(1.05) translateY(-10px);
+}
+
+/* Content Styling */
+.product-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--spacing-lg);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-matte-gold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.product-title {
+  font-size: 3rem;
+  color: var(--color-anthracite);
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+}
+
+.product-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-vine-green);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-stone-200);
+  display: inline-block;
+}
+
+.product-desc {
+  font-size: 1.1rem;
+  color: var(--color-anthracite);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* Attributes List */
+.product-attributes {
+  margin-bottom: var(--spacing-lg);
+}
+
+.product-attributes li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+/* Puce personnalisée */
+.product-attributes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-matte-gold);
+  border-radius: 50%; /* Rond */
+}
+
+.attr-label {
+  font-weight: 600;
+  color: var(--color-vine-green);
+  margin-right: 0.5rem;
+}
+
+.product-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+/* 4. INTERLUDE PHILOSOPHIE
+   ----------------------------------------- */
+.interlude-philosophie {
+  position: relative;
+  padding: var(--spacing-xxl) 0;
+  margin: var(--spacing-xxl) 0;
+  color: var(--color-white);
+  background-color: var(--color-vine-green); /* Fond vert noble uni */
+  /* Pas d'image de fond risquée, on mise sur la couleur et le cadre */
+
+  /* Bordures dorées externes */
+  border-top: 1px solid var(--color-matte-gold);
+  border-bottom: 1px solid var(--color-matte-gold);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.philosophie-content-wrapper {
+  max-width: 900px;
+  padding: 4rem 2rem;
+  /* Cadre doré interne élégant */
+  border: 1px solid rgba(198, 166, 100, 0.5);
+  background: transparent;
+  border-radius: 4px;
+}
+
+.philosophie-quote {
+  font-size: 1.75rem;
+  font-style: italic;
+  line-height: 1.6;
+  font-family: var(--font-serif);
+  position: relative;
+  z-index: 1;
+}
+
+.quote-icon {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  color: var(--color-matte-gold);
+  opacity: 0.8;
+}
+
+/* 5. BOUTON TÉLÉCHARGEMENT
+   ----------------------------------------- */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.75rem;
+  background-color: transparent;
+  border: 2px solid var(--color-matte-gold); /* Bordure dorée plus visible */
+  color: var(--color-anthracite);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.btn-download:hover {
+  background-color: var(--color-matte-gold);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(198, 166, 100, 0.3);
+}
+
+.btn-download svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-download:hover svg {
+  transform: translateY(2px); /* Petite animation de l'icône vers le bas */
+}
+
+/* 6. RESPONSIVE (MOBILE & TABLET)
+   ----------------------------------------- */
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+  /* Sur mobile, on passe en colonne unique */
+  .product-block {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: 3rem;
+  }
+
+  .product-block.row,
+  .product-block.row-reverse {
+    flex-direction: column;
+  }
+
+  .product-image,
+  .product-content {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .product-image {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .image-backdrop {
+    width: 80%;
+    height: 250px;
+  }
+
+  .bottle-img {
+    max-height: 350px;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .product-subtitle {
+    display: block;
+    border-bottom: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .product-desc {
+    font-size: 0.95rem;
+  }
+
+  .product-attributes {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .product-actions {
+    justify-content: center;
+  }
+}
+
+/* Tablet (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .product-block {
+    gap: var(--spacing-lg);
+  }
+
+  .product-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  .bottle-img {
+    max-height: 450px;
+  }
+
+  .image-backdrop {
+    width: 280px;
+    height: 380px;
+  }
+}
+
+/* Desktop large (> 1024px) - Default styles apply */
+
+/* 6. ANIMATIONS
+   ----------------------------------------- */
+.fade-element {
+  /* opacity: 0;  <-- Désactivé temporairement pour débugger l'affichage */
+  /* transform: translateY(30px); */
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-element.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
