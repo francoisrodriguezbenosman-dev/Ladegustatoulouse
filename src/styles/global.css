@@ -1,0 +1,260 @@
+﻿:root {
+  --color-wine: #6f0232;
+  --color-ivory: #f0e6dc;
+  --color-ink: #1d171a;
+  --color-cream: #f7efe6;
+  --color-muted: #7a6a6f;
+  --color-line: rgba(111, 2, 50, 0.18);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-soft: 0 10px 26px rgba(32, 20, 24, 0.1);
+  --shadow-card: 0 8px 18px rgba(32, 20, 24, 0.08);
+  --max-width: 1120px;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: #f6efe7;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-wine);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(100% - 2rem, var(--max-width));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section--tight {
+  padding: 3rem 0;
+}
+
+.section--cream {
+  background: var(--color-cream);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.split {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.stack {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  color: var(--color-wine);
+  font-weight: 600;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  margin: 0.4rem 0 0.8rem;
+  line-height: 1.1;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  max-width: 58ch;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(111, 2, 50, 0.08);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-lg);
+  background: rgba(111, 2, 50, 0.12);
+  color: var(--color-wine);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  background: var(--color-wine);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 14px 26px rgba(111, 2, 50, 0.2);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-wine);
+  border-color: rgba(111, 2, 50, 0.35);
+  box-shadow: none;
+}
+
+.image-oval {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.image-circle {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.site-header {
+  background: var(--color-wine);
+  color: #f8efe7;
+  padding: 1rem 0;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: grid;
+  align-items: center;
+  color: #fff;
+  background: url("https://ladegustatoulouse.com/wp-content/uploads/2025/04/IMG_7439-683x1024.jpg") center/cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(62, 14, 28, 0.72), rgba(62, 14, 28, 0.3));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 0;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.8vw, 4.4rem);
+  margin: 0.5rem 0 1rem;
+}
+
+.hero-subtitle {
+  max-width: 60ch;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.6rem;
+}
+
+.hero-actions .btn--outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--color-line);
+  margin: 1.5rem 0;
+}
+
+.site-footer {
+  background: var(--color-wine);
+  color: #f8efe7;
+  padding: 3rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero-content {
+    padding: 4rem 0 3rem;
+  }
+}
